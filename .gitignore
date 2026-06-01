@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Benchmark outputs (keep templates, ignore actual answers)
+answers.json
+self-test-answers.json
+simulated-*-protocol.json
+answers-template-*.json
+
+# IDE
+.vscode/
+.idea/

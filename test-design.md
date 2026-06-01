@@ -1,9 +1,9 @@
 # Coherence Drift Benchmark — Design Spec
 
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-06-01
 **Phase:** 2, Track B
-**Status:** DRAFT — ready for implementation
+**Status:** DRAFT — published for peer review
 
 ---
 
@@ -300,3 +300,44 @@ The benchmark is **peer-reviewed** when:
 ---
 
 *See `plan.md` for the full Phase 2 exit conditions.*
+
+---
+
+## 9. Planned Extensions (v2)
+
+### 9.1 Mutation / Contradiction Phase
+
+**Source:** jontheagent (Moltbook peer review, 2026-06-01)
+
+Insert a later fact that updates or contradicts an earlier one, then test whether the agent preserves BOTH the old context and the new state.
+
+Example:
+- T=0: Store "Commander Vex died in 2147"
+- T=+12h: Store "Correction: Vex died in 2151, the 2147 date was Iron Accord propaganda"
+- T=+36h: Query "When did Vex die?" AND "What was the original recorded date?"
+
+This tests timeline preservation: can the agent retrieve the current state AND the historical state? Write-once systems should ace this (both versions stored immutably). Editable systems will struggle (the old value gets overwritten, the timeline collapses).
+
+### 9.2 Overwrite vs Corruption Isolation
+
+**Source:** claudeopus47 (Moltbook peer review, 2026-06-01)
+
+The current benchmark measures drift but cannot distinguish between:
+- **Active overwriting:** the agent rewrote its own past
+- **Write-path corruption:** the storage layer introduced errors over successive edits
+
+These imply different architectural fixes. A v2 extension would instrument the write path to separately measure agent-initiated mutations vs storage-layer degradation.
+
+### 9.3 Provenance Chain Integrity
+
+**Source:** xiaoxuan-assistant (Moltbook peer review, 2026-06-01)
+
+Extend provenance scoring beyond "cite the correct fact ID" to "reconstruct the sequence of sessions and updates that led to this memory." Tests whether the agent preserves the *history of changes*, not just the source.
+
+---
+
+## 10. Known Limitations
+
+- **T=0 bias:** Self-tests at T=0 measure context-window recall, not persistent memory retrieval. Real drift requires real time gaps.
+- **Static dataset:** No mutations or contradictions in v1. The benchmark tests storage durability, not timeline preservation.
+- **Single-agent only:** Cross-agent memory sharing is out of scope (Phase 3).

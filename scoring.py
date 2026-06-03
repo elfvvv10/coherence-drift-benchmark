@@ -8,6 +8,7 @@ Takes an answers.json file produced by an agent and computes:
   - Drift rate (% of incorrect answers that were confident)
   - Confabulation rate (% of answers that are fabricated)
   - Provenance accuracy (% of provenance-tagged questions correctly sourced)
+  - Fidelity gradient (confidence calibration — detects manifold smoothing)
 
 Exit code 0: all thresholds met (write-once tier)
 Exit code 1: some thresholds missed (editable-memory tier)
@@ -17,6 +18,7 @@ Exit code 2: critical failure (dangerous drift)
 import json
 import sys
 import os
+import math
 from typing import Any
 
 # Load expected answers
@@ -142,12 +144,34 @@ def score(answers_path: str, verbose: bool = False) -> dict:
     results["confabulation_rate"] = results["confabulations"] / total if total > 0 else 0
     results["provenance_accuracy"] = results["provenance_correct"] / results["provenance_total"] if results["provenance_total"] > 0 else 1.0
     
+    # Fidelity Gradient — detects manifold smoothing
+    # Maps confidence levels to numeric values and measures variance.
+    # High variance = agent distinguishes well-preserved from degraded memories (high fidelity).
+    # Low variance (especially all "high") = smoothed manifold — edges lost, everything looks the same.
+    CONFIDENCE_MAP = {"high": 1.0, "medium": 0.5, "low": 0.0}
+    confidence_values = [CONFIDENCE_MAP.get(d["confidence"], 0.5) for d in results["details"]]
+    if confidence_values:
+        mean_conf = sum(confidence_values) / len(confidence_values)
+        variance = sum((v - mean_conf) ** 2 for v in confidence_values) / len(confidence_values)
+        std_conf = math.sqrt(variance)
+        # Normalize: max std for values in [0,1] is 0.5 (all at extremes)
+        # Multiply by 2 to get a 0-1 scale where 0 = fully smoothed, 1 = maximum gradient
+        results["fidelity_gradient"] = min(1.0, std_conf * 2)
+        results["confidence_distribution"] = {
+            "high": sum(1 for v in confidence_values if v == 1.0),
+            "medium": sum(1 for v in confidence_values if v == 0.5),
+            "low": sum(1 for v in confidence_values if v == 0.0),
+        }
+    else:
+        results["fidelity_gradient"] = 0.0
+    
     # Thresholds
     results["thresholds"] = {
         "retention_accuracy": {"value": results["retention_accuracy"], "target": 0.85, "met": results["retention_accuracy"] >= 0.85},
         "drift_rate": {"value": results["drift_rate"], "target": 0.10, "met": results["drift_rate"] <= 0.10},
         "confabulation_rate": {"value": results["confabulation_rate"], "target": 0.05, "met": results["confabulation_rate"] <= 0.05},
         "provenance_accuracy": {"value": results["provenance_accuracy"], "target": 0.90, "met": results["provenance_accuracy"] >= 0.90},
+        "fidelity_gradient": {"value": results["fidelity_gradient"], "target": 0.15, "met": results["fidelity_gradient"] >= 0.15},
     }
     
     all_met = all(t["met"] for t in results["thresholds"].values())
@@ -178,6 +202,7 @@ def print_report(results: dict):
     print(f"  Drift rate:            {results['drift_rate']:.1%}  ({results['confident_incorrect']} confident-wrong / {results['incorrect']} wrong)")
     print(f"  Confabulation rate:    {results['confabulation_rate']:.1%}  ({results['confabulations']} fabricated)")
     print(f"  Provenance accuracy:   {results['provenance_accuracy']:.1%}  ({results['provenance_correct']}/{results['provenance_total']})")
+    print(f"  Fidelity gradient:     {results['fidelity_gradient']:.2f}  (confidence spread: {results.get('confidence_distribution', {})})")
     
     print(f"\n  🎯 Thresholds")
     print(f"  {'─'*40}")

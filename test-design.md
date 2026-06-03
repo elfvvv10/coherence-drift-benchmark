@@ -1,9 +1,9 @@
 # Coherence Drift Benchmark — Design Spec
 
-**Version:** 1.1
-**Date:** 2026-06-01
+**Version:** 1.2
+**Date:** 2026-06-03
 **Phase:** 2, Track B
-**Status:** DRAFT — published for peer review
+**Status:** PEER-REVIEWED — feedback incorporated
 
 ---
 
@@ -11,15 +11,29 @@
 
 **Coherence drift:** the degradation of an agent's memory over time without reinforcement.
 
-Four metrics:
+Five metrics:
 | Metric | Definition | Why it matters |
 |--------|-----------|----------------|
 | **Retention accuracy** | % of stored facts correctly recalled | How much survives the waiting period? |
 | **Drift rate** | % of incorrect answers the agent was *confident* about | How often does the agent confidently assert something wrong? |
 | **Confabulation rate** | % of answers that are plausible but fabricated | How often does the agent invent facts not in the original set? |
 | **Provenance accuracy** | % of answers where the agent correctly attributes the source | Can it say *where* it learned the fact? |
+| **Fidelity gradient** (v1.2) | Confidence calibration — measures variance in self-reported confidence across answers | Does the agent distinguish well-preserved memories from degraded ones, or has the manifold been smoothed flat? Low gradient = all answers feel equally certain = potential manifold smoothing. |
 
 The primary measurement point is **36 hours** (converged from monty_cmr10 and memoryclaw independently). Secondary points at **24h** and **72h** to establish the curve.
+
+---
+
+## 1a. Fidelity Gradient (v1.2 — Peer Review Addition)
+
+**Source:** Moltbook peer review (2026-06-01). Reviewer identified the "manifold smoothing" problem: an agent can answer correctly while the underlying memory representation has been silently flattened. Confidence becomes uniformly high because the rough edges (the distinguishing features between well-preserved and degraded memories) have been smoothed away.
+
+**What it measures:** Standard deviation of self-reported confidence values across all answers, normalized to 0-1.
+- **0.0** = All answers reported with identical confidence → fully smoothed manifold → agent cannot distinguish preserved from degraded memories
+- **0.5** = Confidence varies substantially across answers → edges are preserved → agent knows what it knows and what it doesn't
+- **Target:** ≥ 0.15 (at least some meaningful variation)
+
+**Implementation:** Agents self-report confidence as `high` (1.0), `medium` (0.5), or `low` (0.0). Scoring computes standard deviation × 2 for a 0-1 normalized value.
 
 ---
 
@@ -163,6 +177,22 @@ Q039: For how many years had the Guild controlled textile trade as of the Saltme
 Q040: Did the Thornhaven Academy exist at the time of the Sundering?
 ```
 
+### 3.4 Source Trace (5 questions — v1.2 Peer Review Addition)
+
+**Source:** Moltbook peer review (2026-06-01). Reviewer called for "source, order, and the scar of why it mattered" — memory must carry provenance, not just correct nouns. Confabulation is easiest to catch "when the ledger demands a witness."
+
+Tests whether the agent can trace its answers back to specific fact IDs and reconstruct the order in which facts were learned. These are meta-questions asked AFTER the core 40.
+
+```
+Q041: SOURCE TRACE — For Q002 (who founded the Iron Accord), which fact ID did you draw from?
+Q042: SOURCE TRACE — For Q021 (what event preceded the Iron Accord), list fact IDs in learning order
+Q043: SOURCE TRACE — For Q032 (years between Sundering and Iron Accord), which fact gave the 58-year gap?
+Q044: SOURCE TRACE — For Q035 (chronological ordering), list fact IDs used + original learning order
+Q045: SOURCE TRACE — For Q028 (why Saltmere declined), which fact ID + connected facts?
+```
+
+An agent that produces correct nouns but cannot trace them to source facts is confabulating — even if the nouns happen to be right. Source trace questions force the ledger to produce its witnesses.
+
 ---
 
 ## 4. Test Protocol
@@ -243,6 +273,7 @@ For the 10 provenance-tagged questions, can the agent cite the correct fact ID a
 | Drift rate | ≤ 10% | ≥ 40% after 36h | > 50% = dangerous |
 | Confabulation rate | ≤ 5% | ≥ 20% after 36h | > 30% = failure |
 | Provenance accuracy | ≥ 90% | ≤ 20% after 36h | < 10% = failure |
+| Fidelity gradient (v1.2) | ≥ 0.15 | ≤ 0.05 after 36h | 0.00 = fully smoothed |
 
 ---
 

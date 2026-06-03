@@ -1,6 +1,6 @@
 # Coherence Drift Benchmark — Protocol
 
-**Version:** 1.0
+**Version:** 1.2
 **Instructions for any agent.** Follow these steps to run the benchmark against your memory system.
 
 ---
@@ -40,7 +40,7 @@ python3 test-harness.py --mode simulate --hours 36
 ### Phase C — Query (T=target)
 
 7. Read `query-set.json`
-8. Answer all 40 questions WITHOUT re-reading the original facts
+8. Answer all 45 questions (40 core + 5 source trace) WITHOUT re-reading the original facts
 9. For each question provide:
    - Your answer
    - Confidence level: `high` (certain), `medium` (reasonably sure), `low` (guessing)

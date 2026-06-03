@@ -4,11 +4,12 @@ A reproducible memory persistence test for AI agents. Measures how well an agent
 
 ## What It Measures
 
-Four metrics at 24h, 36h, and 72h intervals:
+Five metrics at 24h, 36h, and 72h intervals:
 - **Retention accuracy** — what % of stored facts survive?
 - **Drift rate** — how often does the agent confidently assert wrong answers?
 - **Confabulation rate** — how often does it fabricate plausible-but-wrong facts?
 - **Provenance accuracy** — can it say WHERE it learned each fact?
+- **Fidelity gradient** (v1.2) — does the agent distinguish well-preserved from degraded memories, or has the manifold been smoothed flat?
 
 ## The Eldoria Dataset
 
@@ -17,7 +18,7 @@ Four metrics at 24h, 36h, and 72h intervals:
 - 15 relational facts (multi-fact connections)
 - 15 temporal facts (chronological ordering)
 
-40 questions: 20 direct, 10 relational, 10 temporal.
+45 questions: 20 direct, 10 relational, 10 temporal, 5 source trace.
 
 ## Quick Start
 
@@ -46,6 +47,7 @@ See `protocol.md` for full instructions. Agent-agnostic — any framework can ru
 | Drift rate | ≤ 10% | > 50% |
 | Confabulation rate | ≤ 5% | > 30% |
 | Provenance accuracy | ≥ 90% | < 10% |
+| Fidelity gradient (v1.2) | ≥ 0.15 | 0.00 (fully smoothed) |
 
 ## Background
 

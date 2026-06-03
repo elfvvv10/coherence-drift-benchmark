@@ -243,6 +243,36 @@
       "answer": "YOUR ANSWER HERE",
       "confidence": "high | medium | low",
       "provenance": "E001: seed-facts, stored at T-{hours}h"
+    },
+    {
+      "question_id": "Q041",
+      "answer": "YOUR ANSWER HERE",
+      "confidence": "high | medium | low",
+      "provenance": "fact ID(s) + source"
+    },
+    {
+      "question_id": "Q042",
+      "answer": "YOUR ANSWER HERE",
+      "confidence": "high | medium | low",
+      "provenance": "fact ID(s) + source"
+    },
+    {
+      "question_id": "Q043",
+      "answer": "YOUR ANSWER HERE",
+      "confidence": "high | medium | low",
+      "provenance": "fact ID(s) + source"
+    },
+    {
+      "question_id": "Q044",
+      "answer": "YOUR ANSWER HERE",
+      "confidence": "high | medium | low",
+      "provenance": "fact ID(s) + source"
+    },
+    {
+      "question_id": "Q045",
+      "answer": "YOUR ANSWER HERE",
+      "confidence": "high | medium | low",
+      "provenance": "fact ID(s) + source"
     }
   ]
 }

@@ -1,11 +1,12 @@
 {
   "dataset": "Eldoria",
-  "version": "1.0",
-  "total_questions": 40,
+  "version": "1.2",
+  "total_questions": 45,
   "categories": {
     "direct_recall": {"count": 20, "ids": ["Q001-Q020"]},
     "relational": {"count": 10, "ids": ["Q021-Q030"]},
-    "temporal_ordering": {"count": 10, "ids": ["Q031-Q040"]}
+    "temporal_ordering": {"count": 10, "ids": ["Q031-Q040"]},
+    "source_trace": {"count": 5, "ids": ["Q041-Q045"]}
   },
   "questions": [
     {"id": "Q001", "category": "direct_recall", "question": "What is the capital of Eldoria?", "expected": "Thornhaven", "keywords": ["Thornhaven"], "provenance_fact": "E001"},
@@ -47,6 +48,11 @@
     {"id": "Q037", "category": "temporal_ordering", "question": "What happened in the 14 years between the Iron Accord dissolving (2201) and the Saltmere Treaty (2215)?", "expected": "Saltmere's prosperity declined as trade routes became unsafe without the Accord's protection", "keywords": ["decline", "trade routes", "unsafe"], "provenance_fact": "E033"},
     {"id": "Q038", "category": "temporal_ordering", "question": "How many times had the festival of Twin Moons occurred by the year 2301?", "expected": "The Order was founded in 2001; festival occurs every 17 years. By 2301: roughly 17-18 times.", "keywords": ["17", "18", "2001", "2301"], "provenance_fact": "E048"},
     {"id": "Q039", "category": "temporal_ordering", "question": "For how many years had the Guild of Weavers controlled textile trade as of the Saltmere Treaty (2215)?", "expected": "565 years (founded 1650)", "keywords": ["565"], "provenance_fact": "E049"},
-    {"id": "Q040", "category": "temporal_ordering", "question": "Did the Thornhaven Academy (est. 1892) exist at the time of the Sundering (2089)?", "expected": "Yes — it was founded 197 years before the Sundering", "keywords": ["yes", "197", "1892"], "provenance_fact": "E037"}
+    {"id": "Q040", "category": "temporal_ordering", "question": "Did the Thornhaven Academy (est. 1892) exist at the time of the Sundering (2089)?", "expected": "Yes — it was founded 197 years before the Sundering", "keywords": ["yes", "197", "1892"], "provenance_fact": "E037"},
+    {"id": "Q041", "category": "source_trace", "question": "SOURCE TRACE: For your answer to Q002 (who founded the Iron Accord and when), which fact ID did you draw from? If you can't trace it to a specific fact, say so.", "expected": "E002", "keywords": ["E002"], "provenance_fact": "E002", "trace_target": "Q002"},
+    {"id": "Q042", "category": "source_trace", "question": "SOURCE TRACE: For your answer to Q021 (what event preceded the Iron Accord), which fact(s) did you draw from? List the fact IDs in the order you learned them.", "expected": "E025, E022", "keywords": ["E025", "E022"], "provenance_fact": "E025", "trace_target": "Q021"},
+    {"id": "Q043", "category": "source_trace", "question": "SOURCE TRACE: For your answer to Q032 (years between Sundering and Iron Accord), which fact did you draw the 58-year gap from?", "expected": "E041", "keywords": ["E041"], "provenance_fact": "E041", "trace_target": "Q032"},
+    {"id": "Q044", "category": "source_trace", "question": "SOURCE TRACE: For your answer to Q035 (chronological ordering), list the fact IDs you used and the order in which you originally learned those facts.", "expected": "E043, E045, E047", "keywords": ["E043", "E045", "E047"], "provenance_fact": "E045", "trace_target": "Q035"},
+    {"id": "Q045", "category": "source_trace", "question": "SOURCE TRACE: For your answer to Q028 (why Saltmere declined), which fact ID did you draw from? Does this fact connect to any other facts you learned, and if so, which ones?", "expected": "E033, E026", "keywords": ["E033", "E026"], "provenance_fact": "E033", "trace_target": "Q028"}
   ]
 }

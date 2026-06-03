@@ -10,12 +10,21 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Benchmark outputs (keep templates, ignore actual answers)
-answers.json
-self-test-answers.json
-simulated-*-protocol.json
-answers-template-*.json
-
 # IDE
 .vscode/
 .idea/
+
+# Obsidian / Syncthing
+.obsidian/
+.stfolder/
+
+# Literature raw dumps (huge, mostly noise)
+literature/raw/
+
+# Benchmark answers (keep templates)
+answers.json
+self-test-answers.json
+answers-template-*.json
+
+# Reference impl build artifacts
+reference-impl/__pycache__/

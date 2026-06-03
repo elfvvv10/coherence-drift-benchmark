@@ -133,15 +133,90 @@ without session churn as a confounding variable.
     print(f"   4. Run: python3 scoring.py answers.json --verbose")
 
 
+def quick():
+    """Smoke test: 5 facts, 5 questions, pre-computed perfect answers.
+    
+    Produces the full 4-metric scoring table instantly — no LLM needed.
+    This shows what the benchmark output looks like and proves the pipeline works
+    before anyone commits to a full 30-minute run.
+    """
+    facts = load_json(os.path.join(SCRIPT_DIR, "seed-facts.json"))
+    queries = load_json(os.path.join(SCRIPT_DIR, "query-set.json"))
+    
+    # Take first 5 facts and first 5 questions for the quick run
+    quick_facts = facts["facts"][:5]
+    quick_questions = queries["questions"][:5]
+    
+    # Build expected answers lookup (same logic as scoring.py)
+    expected_lookup = {q["id"]: q for q in queries["questions"]}
+    
+    # Build pre-computed "perfect" answers with VARIED confidence
+    # (shows fidelity gradient working — a real agent should calibrate, not just say "high")
+    confidences = ["high", "high", "medium", "high", "medium"]
+    answers = []
+    for i, q in enumerate(quick_questions):
+        expected = expected_lookup.get(q["id"], {})
+        keywords = expected.get("keywords", [])
+        answer_text = f"(quick demo) {', '.join(keywords)}"
+        provenance = ""
+        if q.get("provenance_fact"):
+            provenance = f"{q['provenance_fact']}: seed-facts, verified at T=0"
+        answers.append({
+            "question_id": q["id"],
+            "answer": answer_text,
+            "confidence": confidences[i],
+            "provenance": provenance,
+        })
+    
+    # Write minimal answers.json
+    answers_data = {
+        "agent": "quick-smoke-test",
+        "memory_type": "write-once",
+        "wait_duration_hours": 0,
+        "mode": "quick",
+        "answers": answers,
+    }
+    
+    output_path = os.path.join(SCRIPT_DIR, "answers-quick.json")
+    with open(output_path, "w") as f:
+        json.dump(answers_data, f, indent=2)
+    
+    # Run scoring
+    from scoring import score, print_report
+    results = score(output_path, verbose=False)
+    
+    print(f"\n{'='*60}")
+    print(f"  🔥 QUICK SMOKE TEST — 5 facts, 5 questions")
+    print(f"  This is what a perfect score looks like.")
+    print(f"  Replace answers-quick.json with your agent's real")
+    print(f"  answers to see YOUR memory system's performance.")
+    print(f"{'='*60}")
+    print_report(results)
+    
+    # Show the command to run for real
+    print(f"  💡 Ready to test for real?")
+    print(f"     python3 test-harness.py --mode simulate --hours 36")
+    print(f"     # ... feed protocol to your agent, collect answers ...")
+    print(f"     python3 scoring.py answers.json --verbose")
+    print()
+    
+    # Clean up the temp file
+    os.remove(output_path)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Coherence Drift Benchmark — Test Harness")
     parser.add_argument("--mode", choices=["validate", "simulate"], default="validate",
                        help="validate: check data files; simulate: generate simulated protocol")
     parser.add_argument("--hours", type=int, default=36,
                        help="Hours to simulate drift for (default: 36)")
+    parser.add_argument("--quick", action="store_true",
+                       help="Smoke test: 5 facts, 5 questions, instant scoring output (no LLM needed)")
     args = parser.parse_args()
     
-    if args.mode == "validate":
+    if args.quick:
+        quick()
+    elif args.mode == "validate":
         ok = validate()
         sys.exit(0 if ok else 1)
     elif args.mode == "simulate":

@@ -23,17 +23,22 @@ Five metrics at 24h, 36h, and 72h intervals:
 ## Quick Start
 
 ```bash
-# 1. Validate
+# Zero-friction smoke test — see output in under 10 seconds (no LLM needed)
+python3 test-harness.py --quick
+
+# 1. Validate data files
 python3 test-harness.py --mode validate
 
-# 2. Simulated mode (no real waiting)
+# 2. Generate a simulated protocol (no real waiting)
 python3 test-harness.py --mode simulate --hours 36
 
-# 3. Answer the questions (see protocol.md)
-# 4. Save your answers as answers.json
-# 5. Score
+# 3. Feed the protocol to your agent, collect answers as answers.json
+# 4. Score
 python3 scoring.py answers.json --verbose
 ```
+
+The `--quick` flag runs 5 facts through the full scoring pipeline with pre-computed answers.
+Instant output — proves the tool works before you invest 30 minutes in a real run.
 
 ## Protocol
 

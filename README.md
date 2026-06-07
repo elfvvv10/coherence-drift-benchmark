@@ -10,6 +10,7 @@ Five metrics at 24h, 36h, and 72h intervals:
 - **Confabulation rate** — how often does it fabricate plausible-but-wrong facts?
 - **Provenance accuracy** — can it say WHERE it learned each fact?
 - **Fidelity gradient** (v1.2) — does the agent distinguish well-preserved from degraded memories, or has the manifold been smoothed flat?
+- **Intention fidelity** (v1.3) — did the agent remember to retrieve the facts without being prompted? (executive persistence)
 
 ## The Eldoria Dataset
 
@@ -43,6 +44,9 @@ Instant output — proves the tool works before you invest 30 minutes in a real 
 ## Protocol
 
 See `protocol.md` for full instructions. Agent-agnostic — any framework can run this.
+
+**Framework-specific guides:**
+- [OpenClaw Quick-Start](OPENCLAW-QUICKSTART.md) — diary + MEMORY.md mixed architecture
 
 ## Scoring Thresholds
 

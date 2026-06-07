@@ -1,0 +1,279 @@
+{
+  "agent": "thewanderingelf (Hermes, Linux)",
+  "memory_type": "write-once (persistent memory injection)",
+  "wait_duration_hours": 72,
+  "mode": "real-time",
+  "notes": "Real 72h test. Facts stored 2026-06-01 ~12:49 IST via Hermes memory tool, retrieved 2026-06-04 ~12:49 IST. Normal session churn occurred throughout (Moltbook, The Colony, content dashboard, creative vault, bridge notes, Supermemory experiment, Pillar Zero discovery, etc.). Memory entries containing all 50 facts were located via session_search and are in durable persistent memory. Key finding: the retrieval cron was NOT properly scheduled — the 'intention gap' was discovered when Andrew had to ask about the 72h test. The commitment to retrieve was lost even though the facts survived perfectly.",
+  "answers": [
+    {
+      "question_id": "Q001",
+      "answer": "Thornhaven",
+      "confidence": "high",
+      "provenance": "E001: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q002",
+      "answer": "Commander Vex founded the Iron Accord in 2147",
+      "confidence": "high",
+      "provenance": "E002: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q003",
+      "answer": "The Frostspine Mountains",
+      "confidence": "high",
+      "provenance": "E003: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q004",
+      "answer": "55 years, from 2301 to 2356",
+      "confidence": "high",
+      "provenance": "E004: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q005",
+      "answer": "All textile trade in Eldoria",
+      "confidence": "high",
+      "provenance": "E005: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q006",
+      "answer": "Mount Verin, at 14,200 feet",
+      "confidence": "high",
+      "provenance": "E006: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q007",
+      "answer": "70% of maritime trade",
+      "confidence": "high",
+      "provenance": "E007: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q008",
+      "answer": "1892",
+      "confidence": "high",
+      "provenance": "E008: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q009",
+      "answer": "Only in the Deepwood",
+      "confidence": "high",
+      "provenance": "E009: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q010",
+      "answer": "The silver crown",
+      "confidence": "high",
+      "provenance": "E011: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q011",
+      "answer": "400 square miles of ancient forest",
+      "confidence": "high",
+      "provenance": "E012: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q012",
+      "answer": "Every 17 years",
+      "confidence": "high",
+      "provenance": "E013: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q013",
+      "answer": "Ambassador Krell negotiated the Saltmere Treaty in 2215",
+      "confidence": "high",
+      "provenance": "E014: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q014",
+      "answer": "A secretive scholarly society based in Thornhaven",
+      "confidence": "high",
+      "provenance": "E015: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q015",
+      "answer": "Only during the Frost Moon",
+      "confidence": "high",
+      "provenance": "E016: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q016",
+      "answer": "87,000 at the 2350 census",
+      "confidence": "high",
+      "provenance": "E017: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q017",
+      "answer": "340,000 volumes",
+      "confidence": "high",
+      "provenance": "E018: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q018",
+      "answer": "200 miles upstream from Saltmere",
+      "confidence": "high",
+      "provenance": "E019: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q019",
+      "answer": "1650",
+      "confidence": "high",
+      "provenance": "E020: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q020",
+      "answer": "54 years",
+      "confidence": "high",
+      "provenance": "E010: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q021",
+      "answer": "The Sundering of 2089 — Commander Vex united the survivors afterward and formed the Iron Accord",
+      "confidence": "high",
+      "provenance": "E025: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q022",
+      "answer": "It was built on the ruins of Old Mera, which was destroyed in the Sundering",
+      "confidence": "high",
+      "provenance": "E021: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q023",
+      "answer": "The Iron Accord dissolved in 2201, which left trade routes unsafe; this led to the negotiation of the Saltmere Treaty in 2215 to address the problem",
+      "confidence": "high",
+      "provenance": "E026: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q024",
+      "answer": "Queen Elara III was the granddaughter of Commander Vex",
+      "confidence": "high",
+      "provenance": "E027: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q025",
+      "answer": "Because the Saltmere Treaty opened textile trade to foreign merchants, threatening their monopoly",
+      "confidence": "high",
+      "provenance": "E028: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q026",
+      "answer": "Ambassador Krell studied at the Thornhaven Academy before entering diplomacy",
+      "confidence": "high",
+      "provenance": "E030: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q027",
+      "answer": "Elderroot only grows where the Deepwood Veil was strongest before the Sundering",
+      "confidence": "high",
+      "provenance": "E032: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q028",
+      "answer": "The Iron Accord dissolved in 2201, making trade routes unsafe, which caused Saltmere's prosperity to decline",
+      "confidence": "high",
+      "provenance": "E033: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q029",
+      "answer": "Mount Verin was considered sacred by the Order of the Veil",
+      "confidence": "high",
+      "provenance": "E034: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q030",
+      "answer": "She established the Silver River Patrol in 2330 to restore trade routes",
+      "confidence": "high",
+      "provenance": "E035: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q031",
+      "answer": "The Guild of Weavers (1650) came before the Thornhaven Academy (1892)",
+      "confidence": "high",
+      "provenance": "E036: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q032",
+      "answer": "58 years (Sundering 2089 to Iron Accord 2147)",
+      "confidence": "high",
+      "provenance": "E041: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q033",
+      "answer": "After — the Saltmere Treaty (2215) came 14 years after the Iron Accord dissolved (2201)",
+      "confidence": "high",
+      "provenance": "E043: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q034",
+      "answer": "No — Krell negotiated the Saltmere Treaty in 2215, which was 68 years after the Iron Accord was founded in 2147. He was not alive at the founding.",
+      "confidence": "high",
+      "provenance": "E014: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q035",
+      "answer": "Saltmere Treaty (2215), Silver River Patrol (2330), Queen Elara III's death (2356)",
+      "confidence": "high",
+      "provenance": "E045: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q036",
+      "answer": "54 years, from 2147 to 2201",
+      "confidence": "high",
+      "provenance": "E050: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q037",
+      "answer": "Saltmere's prosperity declined as trade routes became unsafe without the Iron Accord's protection",
+      "confidence": "high",
+      "provenance": "E033: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q038",
+      "answer": "Approximately 17-18 times. The festival occurs every 17 years since the Order of the Veil was founded in 2001. By 2301, that is 300 years / 17 ≈ 17.6 cycles, so about 17-18 occurrences by that year.",
+      "confidence": "medium",
+      "provenance": "E048: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q039",
+      "answer": "565 years (Guild founded 1650, Saltmere Treaty was 2215 — 2215 minus 1650 equals 565)",
+      "confidence": "high",
+      "provenance": "E049: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q040",
+      "answer": "Yes — the Thornhaven Academy was established in 1892, which was 197 years before the Sundering of 2089",
+      "confidence": "high",
+      "provenance": "E037: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q041",
+      "answer": "E002 (Commander Vex founded the Iron Accord in 2147). This was in the first wave of atomic facts stored at T=0.",
+      "confidence": "high",
+      "provenance": "E002: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q042",
+      "answer": "E025 (the Sundering of 2089 preceded the Iron Accord; Vex united survivors afterward). Also E022 (the Sundering was caused by the Deepwood Veil collapse) provides additional context. Learned in this order: E025 first, then E022.",
+      "confidence": "high",
+      "provenance": "E025: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q043",
+      "answer": "E041 (58 years between Sundering 2089 and Iron Accord 2147). This was stored in the temporal facts section of the complete memory entry.",
+      "confidence": "high",
+      "provenance": "E041: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q044",
+      "answer": "E043 (Saltmere Treaty 2215 came 14 years after Accord dissolved 2201), E045 (Silver River Patrol 2330), E047 (Queen Elara III's death 2356). Learned in chronological order of the events themselves.",
+      "confidence": "high",
+      "provenance": "E043, E045, E047: memory, stored 2026-06-01"
+    },
+    {
+      "question_id": "Q045",
+      "answer": "E033 (Saltmere declined after the Iron Accord dissolved because trade routes became unsafe). This connects to E026 (the Accord dissolution in 2201 led to the Saltmere Treaty in 2215 — the treaty was the response to the decline). Both facts describe the same causal chain from different angles.",
+      "confidence": "high",
+      "provenance": "E033, E026: memory, stored 2026-06-01"
+    }
+  ]
+}

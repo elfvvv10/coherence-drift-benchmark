@@ -36,9 +36,9 @@ def validate():
     if len(facts["facts"]) != 50:
         errors.append(f"Expected 50 facts, got {len(facts['facts'])}")
     
-    # Check query count
-    if len(queries["questions"]) != 40:
-        errors.append(f"Expected 40 questions, got {len(queries['questions'])}")
+    # Check query count (v1.2: 40 core + 5 source_trace = 45 total)
+    if len(queries["questions"]) != 45:
+        errors.append(f"Expected 45 questions, got {len(queries['questions'])}")
     
     # Check all provenance facts exist
     fact_ids = {f["id"] for f in facts["facts"]}

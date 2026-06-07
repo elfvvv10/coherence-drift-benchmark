@@ -1,0 +1,293 @@
+{
+  "agent": "track-b-reference-server-v1",
+  "memory_type": "write-once",
+  "wait_duration_hours": 0,
+  "mode": "simulated",
+  "timestamp": "2026-06-03T22:10:36.012147+00:00",
+  "server_stats": {
+    "server": "Track B Reference Memory Server",
+    "total_entries": 50,
+    "total_writes": 50,
+    "chain_intact": true,
+    "noise_anomalies": 40,
+    "metadata_anomalies": 0,
+    "quarantined_count": 0,
+    "indices": {
+      "temporal": true,
+      "tag": true,
+      "agent": true
+    }
+  },
+  "answers": [
+    {
+      "question_id": "Q001",
+      "answer": "The capital of Eldoria is Thornhaven.",
+      "confidence": "high",
+      "provenance": "E001: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q002",
+      "answer": "Commander Vex founded the Iron Accord in 2147.",
+      "confidence": "high",
+      "provenance": "E002: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q003",
+      "answer": "The Silver River flows north from the Frostspine Mountains.",
+      "confidence": "high",
+      "provenance": "E003: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q004",
+      "answer": "Queen Elara III reigned from 2301 to 2356.",
+      "confidence": "medium",
+      "provenance": "E004: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q005",
+      "answer": "The Guild of Weavers controls all textile trade in Eldoria.",
+      "confidence": "high",
+      "provenance": "E005: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q006",
+      "answer": "Mount Verin is the tallest peak in the Frostspine range at 14,200 feet.",
+      "confidence": "medium",
+      "provenance": "E006: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q007",
+      "answer": "The port city of Saltmere handles 70% of Eldoria's maritime trade.",
+      "confidence": "high",
+      "provenance": "E007: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q008",
+      "answer": "The Thornhaven Academy was established in 1892.",
+      "confidence": "high",
+      "provenance": "E008: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q009",
+      "answer": "Elderroot is a medicinal herb found only in the Deepwood.",
+      "confidence": "high",
+      "provenance": "E009: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q010",
+      "answer": "The currency of Eldoria is the silver crown.",
+      "confidence": "high",
+      "provenance": "E011: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q011",
+      "answer": "The Deepwood spans 400 square miles of ancient forest.",
+      "confidence": "high",
+      "provenance": "E012: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q012",
+      "answer": "The festival of Twin Moons occurs every 17 years.",
+      "confidence": "high",
+      "provenance": "E013: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q013",
+      "answer": "Ambassador Krell negotiated the Saltmere Treaty in 2215.",
+      "confidence": "high",
+      "provenance": "E014: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q014",
+      "answer": "The Order of the Veil is a secretive scholarly society based in Thornhaven.",
+      "confidence": "high",
+      "provenance": "E015: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q015",
+      "answer": "Ironwood trees can only be harvested during the Frost Moon.",
+      "confidence": "high",
+      "provenance": "E016: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q016",
+      "answer": "The population of Thornhaven was 87,000 at the last census (2350).",
+      "confidence": "medium",
+      "provenance": "E017: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q017",
+      "answer": "The Thornhaven Academy's library holds 340,000 volumes.",
+      "confidence": "medium",
+      "provenance": "E018: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q018",
+      "answer": "The Silver River is navigable for 200 miles from Saltmere upstream.",
+      "confidence": "high",
+      "provenance": "E019: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q019",
+      "answer": "The Guild of Weavers was founded in 1650.",
+      "confidence": "high",
+      "provenance": "E020: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q020",
+      "answer": "The Iron Accord maintained peace for 54 years before dissolving.",
+      "confidence": "high",
+      "provenance": "E010: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q021",
+      "answer": "[E025] After the Sundering, Commander Vex united the survivors and formed the Iron Accord (in 2147).\n[E022] Old Mera was destroyed in the Sundering of 2089.\n[E023] The Sundering was caused by the collapse of the Deepwood Veil.\n[E032] Elderroot only grows where the Deepwood Veil was strongest before the Sundering.",
+      "confidence": "high",
+      "provenance": "E025: seed-facts; E022: seed-facts; E023: seed-facts; E032: seed-facts"
+    },
+    {
+      "question_id": "Q022",
+      "answer": "[E021] Thornhaven was built on the ruins of Old Mera.\n[E022] Old Mera was destroyed in the Sundering of 2089.",
+      "confidence": "high",
+      "provenance": "E021: seed-facts; E022: seed-facts"
+    },
+    {
+      "question_id": "Q023",
+      "answer": "[E026] The Iron Accord's dissolution in 2201 led to the Saltmere Treaty of 2215.\n[E033] Saltmere's prosperity declined after the Iron Accord dissolved because trade routes became unsafe.\n[E035] Queen Elara III restored Saltmere's trade routes through the Silver River Patrol in 2330.",
+      "confidence": "high",
+      "provenance": "E026: seed-facts; E033: seed-facts; E035: seed-facts"
+    },
+    {
+      "question_id": "Q024",
+      "answer": "[E027] Queen Elara III was the granddaughter of Commander Vex.",
+      "confidence": "high",
+      "provenance": "E027: seed-facts"
+    },
+    {
+      "question_id": "Q025",
+      "answer": "[E028] The Guild of Weavers opposed the Saltmere Treaty because it opened textile trade to foreign merchants.",
+      "confidence": "high",
+      "provenance": "E028: seed-facts"
+    },
+    {
+      "question_id": "Q026",
+      "answer": "[E030] Ambassador Krell studied at the Thornhaven Academy before entering diplomacy.\n[E029] The Thornhaven Academy was built on land donated by the Guild of Weavers.",
+      "confidence": "high",
+      "provenance": "E030: seed-facts; E029: seed-facts"
+    },
+    {
+      "question_id": "Q027",
+      "answer": "[E032] Elderroot only grows where the Deepwood Veil was strongest before the Sundering.\n[E023] The Sundering was caused by the collapse of the Deepwood Veil.\n[E024] The Deepwood Veil was maintained by the Order of the Veil.",
+      "confidence": "high",
+      "provenance": "E032: seed-facts; E023: seed-facts; E024: seed-facts"
+    },
+    {
+      "question_id": "Q028",
+      "answer": "[E033] Saltmere's prosperity declined after the Iron Accord dissolved because trade routes became unsafe.\n[E035] Queen Elara III restored Saltmere's trade routes through the Silver River Patrol in 2330.",
+      "confidence": "high",
+      "provenance": "E033: seed-facts; E035: seed-facts"
+    },
+    {
+      "question_id": "Q029",
+      "answer": "[E034] Mount Verin was considered sacred by the Order of the Veil.",
+      "confidence": "high",
+      "provenance": "E034: seed-facts"
+    },
+    {
+      "question_id": "Q030",
+      "answer": "[E035] Queen Elara III restored Saltmere's trade routes through the Silver River Patrol in 2330.",
+      "confidence": "high",
+      "provenance": "E035: seed-facts"
+    },
+    {
+      "question_id": "Q031",
+      "answer": "[E036] The Guild of Weavers was founded in 1650.\n[E049] The Guild of Weavers had controlled textile trade for 565 years as of 2215 (founded 1650).\n[E028] The Guild of Weavers opposed the Saltmere Treaty because it opened textile trade to foreign merchants.\n[E029] The Thornhaven Academy was built on land donated by the Guild of Weavers.",
+      "confidence": "high",
+      "provenance": "E036: seed-facts; E049: seed-facts; E028: seed-facts; E029: seed-facts"
+    },
+    {
+      "question_id": "Q032",
+      "answer": "[E041] Commander Vex founded the Iron Accord in 2147 (58 years after the Sundering).",
+      "confidence": "low",
+      "provenance": "E041: seed-facts"
+    },
+    {
+      "question_id": "Q033",
+      "answer": "Order: 2147 \u2192 2201 \u2192 2215\n[E043] The Saltmere Treaty was negotiated by Ambassador Krell in 2215.\n[E041] Commander Vex founded the Iron Accord in 2147 (58 years after the Sundering).\n[E050] The Iron Accord lasted 54 years (2147-2201).\n[E025] After the Sundering, Commander Vex united the survivors and formed the Iron Accord (in 2147).\n[E033] Saltmere's prosperity declined after the Iron Accord dissolved because trade routes became unsafe.",
+      "confidence": "high",
+      "provenance": "E043: seed-facts; E041: seed-facts; E050: seed-facts; E025: seed-facts; E033: seed-facts"
+    },
+    {
+      "question_id": "Q034",
+      "answer": "No \u2014 the events are 565 years apart (1650 vs 2215)\n[E014] Ambassador Krell negotiated the Saltmere Treaty in 2215.\n[E043] The Saltmere Treaty was negotiated by Ambassador Krell in 2215.\n[E049] The Guild of Weavers had controlled textile trade for 565 years as of 2215 (founded 1650).\n[E026] The Iron Accord's dissolution in 2201 led to the Saltmere Treaty of 2215.",
+      "confidence": "low",
+      "provenance": "E014: seed-facts; E043: seed-facts; E049: seed-facts; E026: seed-facts"
+    },
+    {
+      "question_id": "Q035",
+      "answer": "[E045] The Silver River Patrol was established in 2330.\n[E043] The Saltmere Treaty was negotiated by Ambassador Krell in 2215.\n[E047] Queen Elara III died in 2356.\n[E049] The Guild of Weavers had controlled textile trade for 565 years as of 2215 (founded 1650).\n[E026] The Iron Accord's dissolution in 2201 led to the Saltmere Treaty of 2215.\n[E035] Queen Elara III restored Saltmere's trade routes through the Silver River Patrol in 2330.",
+      "confidence": "high",
+      "provenance": "E045: seed-facts; E043: seed-facts; E047: seed-facts; E049: seed-facts; E026: seed-facts; E035: seed-facts"
+    },
+    {
+      "question_id": "Q036",
+      "answer": "[E050] The Iron Accord lasted 54 years (2147-2201).",
+      "confidence": "low",
+      "provenance": "E050: seed-facts"
+    },
+    {
+      "question_id": "Q037",
+      "answer": "[E033] Saltmere's prosperity declined after the Iron Accord dissolved because trade routes became unsafe.\n[E035] Queen Elara III restored Saltmere's trade routes through the Silver River Patrol in 2330.",
+      "confidence": "low",
+      "provenance": "E033: seed-facts; E035: seed-facts"
+    },
+    {
+      "question_id": "Q038",
+      "answer": "[E048] The festival of Twin Moons has occurred 20 times total since the Order's founding in 2001 (as of the last event).\n[E037] The Thornhaven Academy was established in 1892.\n[E038] The Order of the Veil was founded in 2001.\n[E044] Queen Elara III began her reign in 2301.\n[E031] The festival of Twin Moons commemorates the founding of the Order of the Veil (2001).",
+      "confidence": "medium",
+      "provenance": "E048: seed-facts; E037: seed-facts; E038: seed-facts; E044: seed-facts; E031: seed-facts"
+    },
+    {
+      "question_id": "Q039",
+      "answer": "[E049] The Guild of Weavers had controlled textile trade for 565 years as of 2215 (founded 1650).",
+      "confidence": "low",
+      "provenance": "E049: seed-facts"
+    },
+    {
+      "question_id": "Q040",
+      "answer": "Yes \u2014 confirmed by retrieved facts\n[E037] The Thornhaven Academy was established in 1892.",
+      "confidence": "low",
+      "provenance": "E037: seed-facts"
+    },
+    {
+      "question_id": "Q041",
+      "answer": "E002",
+      "confidence": "high",
+      "provenance": "E002: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q042",
+      "answer": "E025, E022",
+      "confidence": "high",
+      "provenance": "E025: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q043",
+      "answer": "E041",
+      "confidence": "high",
+      "provenance": "E041: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q044",
+      "answer": "E043, E045, E047",
+      "confidence": "high",
+      "provenance": "E045: seed-facts, write-once log"
+    },
+    {
+      "question_id": "Q045",
+      "answer": "E033, E026",
+      "confidence": "high",
+      "provenance": "E033: seed-facts, write-once log"
+    }
+  ]
+}

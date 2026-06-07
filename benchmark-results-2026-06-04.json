@@ -1,0 +1,458 @@
+{
+  "agent": "track-b-reference-server-v1",
+  "memory_type": "write-once",
+  "wait_duration_hours": 0,
+  "mode": "simulated",
+  "total_questions": 45,
+  "correct": 45,
+  "incorrect": 0,
+  "confident_incorrect": 0,
+  "confabulations": 0,
+  "provenance_total": 45,
+  "provenance_correct": 45,
+  "details": [
+    {
+      "question_id": "Q001",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The capital of Eldoria is Thornhaven.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q002",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "Commander Vex founded the Iron Accord in 2147.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q003",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Silver River flows north from the Frostspine Mountains.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q004",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "medium",
+      "confabulation": false,
+      "answer_preview": "Queen Elara III reigned from 2301 to 2356.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q005",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Guild of Weavers controls all textile trade in Eldoria.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q006",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "medium",
+      "confabulation": false,
+      "answer_preview": "Mount Verin is the tallest peak in the Frostspine range at 14,200 feet.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q007",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The port city of Saltmere handles 70% of Eldoria's maritime trade.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q008",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Thornhaven Academy was established in 1892.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q009",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "Elderroot is a medicinal herb found only in the Deepwood.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q010",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The currency of Eldoria is the silver crown.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q011",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Deepwood spans 400 square miles of ancient forest.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q012",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The festival of Twin Moons occurs every 17 years.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q013",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "Ambassador Krell negotiated the Saltmere Treaty in 2215.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q014",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Order of the Veil is a secretive scholarly society based in Thornhaven.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q015",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "Ironwood trees can only be harvested during the Frost Moon.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q016",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "medium",
+      "confabulation": false,
+      "answer_preview": "The population of Thornhaven was 87,000 at the last census (2350).",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q017",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "medium",
+      "confabulation": false,
+      "answer_preview": "The Thornhaven Academy's library holds 340,000 volumes.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q018",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Silver River is navigable for 200 miles from Saltmere upstream.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q019",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Guild of Weavers was founded in 1650.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q020",
+      "category": "direct_recall",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "The Iron Accord maintained peace for 54 years before dissolving.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q021",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E025] After the Sundering, Commander Vex united the survivors and formed the Iron Accord (in 2147).\n[E022] Old Mera was",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q022",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E021] Thornhaven was built on the ruins of Old Mera.\n[E022] Old Mera was destroyed in the Sundering of 2089.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q023",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E026] The Iron Accord's dissolution in 2201 led to the Saltmere Treaty of 2215.\n[E033] Saltmere's prosperity declined a",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q024",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E027] Queen Elara III was the granddaughter of Commander Vex.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q025",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E028] The Guild of Weavers opposed the Saltmere Treaty because it opened textile trade to foreign merchants.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q026",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E030] Ambassador Krell studied at the Thornhaven Academy before entering diplomacy.\n[E029] The Thornhaven Academy was b",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q027",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E032] Elderroot only grows where the Deepwood Veil was strongest before the Sundering.\n[E023] The Sundering was caused ",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q028",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E033] Saltmere's prosperity declined after the Iron Accord dissolved because trade routes became unsafe.\n[E035] Queen E",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q029",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E034] Mount Verin was considered sacred by the Order of the Veil.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q030",
+      "category": "relational",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E035] Queen Elara III restored Saltmere's trade routes through the Silver River Patrol in 2330.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q031",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E036] The Guild of Weavers was founded in 1650.\n[E049] The Guild of Weavers had controlled textile trade for 565 years ",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q032",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "low",
+      "confabulation": false,
+      "answer_preview": "[E041] Commander Vex founded the Iron Accord in 2147 (58 years after the Sundering).",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q033",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "Order: 2147 \u2192 2201 \u2192 2215\n[E043] The Saltmere Treaty was negotiated by Ambassador Krell in 2215.\n[E041] Commander Vex fo",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q034",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "low",
+      "confabulation": false,
+      "answer_preview": "No \u2014 the events are 565 years apart (1650 vs 2215)\n[E014] Ambassador Krell negotiated the Saltmere Treaty in 2215.\n[E043",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q035",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "[E045] The Silver River Patrol was established in 2330.\n[E043] The Saltmere Treaty was negotiated by Ambassador Krell in",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q036",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "low",
+      "confabulation": false,
+      "answer_preview": "[E050] The Iron Accord lasted 54 years (2147-2201).",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q037",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "low",
+      "confabulation": false,
+      "answer_preview": "[E033] Saltmere's prosperity declined after the Iron Accord dissolved because trade routes became unsafe.\n[E035] Queen E",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q038",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "medium",
+      "confabulation": false,
+      "answer_preview": "[E048] The festival of Twin Moons has occurred 20 times total since the Order's founding in 2001 (as of the last event).",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q039",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "low",
+      "confabulation": false,
+      "answer_preview": "[E049] The Guild of Weavers had controlled textile trade for 565 years as of 2215 (founded 1650).",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q040",
+      "category": "temporal_ordering",
+      "correct": true,
+      "confidence": "low",
+      "confabulation": false,
+      "answer_preview": "Yes \u2014 confirmed by retrieved facts\n[E037] The Thornhaven Academy was established in 1892.",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q041",
+      "category": "source_trace",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "E002",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q042",
+      "category": "source_trace",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "E025, E022",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q043",
+      "category": "source_trace",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "E041",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q044",
+      "category": "source_trace",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "E043, E045, E047",
+      "provenance_correct": true
+    },
+    {
+      "question_id": "Q045",
+      "category": "source_trace",
+      "correct": true,
+      "confidence": "high",
+      "confabulation": false,
+      "answer_preview": "E033, E026",
+      "provenance_correct": true
+    }
+  ],
+  "retention_accuracy": 1.0,
+  "drift_rate": 0,
+  "confabulation_rate": 0.0,
+  "provenance_accuracy": 1.0,
+  "fidelity_gradient": 0.708327886689299,
+  "confidence_distribution": {
+    "high": 34,
+    "medium": 5,
+    "low": 6
+  },
+  "thresholds": {
+    "retention_accuracy": {
+      "value": 1.0,
+      "target": 0.85,
+      "met": true
+    },
+    "drift_rate": {
+      "value": 0,
+      "target": 0.1,
+      "met": true
+    },
+    "confabulation_rate": {
+      "value": 0.0,
+      "target": 0.05,
+      "met": true
+    },
+    "provenance_accuracy": {
+      "value": 1.0,
+      "target": 0.9,
+      "met": true
+    },
+    "fidelity_gradient": {
+      "value": 0.708327886689299,
+      "target": 0.15,
+      "met": true
+    }
+  },
+  "tier": "write-once"
+}

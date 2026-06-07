@@ -62,6 +62,10 @@ See `protocol.md` for full instructions. Agent-agnostic — any framework can ru
 
 Part of the Creative Memory project (Track B). Phase 1 found 33 memory persistence approaches across the agent ecosystem and 14 academic papers. Two independent sources converged on ~36 hours as the critical persistence window.
 
+## Related
+
+- [Creative Memory MCP Server](https://github.com/elfvvv10/creative-memory-mcp) — the reference implementation's production cousin: 16 tools for creative vault management, track dashboards, session capture, link graph intelligence, and Pillar Zero intention tracking. MIT licensed.
+
 ## Contributing
 
 Run the benchmark against your agent's memory system and share your results. Open an issue or submit a PR with your `answers.json` + the scoring report.

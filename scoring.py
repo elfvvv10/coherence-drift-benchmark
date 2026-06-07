@@ -7,8 +7,7 @@ Takes an answers.json file produced by an agent and computes:
   - Retention accuracy (% of questions answered correctly)
   - Drift rate (% of incorrect answers that were confident)
   - Confabulation rate (% of answers that are fabricated)
-  - Provenance accuracy (% of provenance-tagged questions correctly sourced)
-  - Fidelity gradient (confidence calibration — detects manifold smoothing)
+  - Provenance accuracy (% of provenance-tagged questions correctly sourced)\n  - Fidelity gradient (confidence calibration — detects manifold smoothing)\n  - Intention fidelity (v1.3 — did the agent remember to retrieve unprompted?)
 
 Exit code 0: all thresholds met (write-once tier)
 Exit code 1: some thresholds missed (editable-memory tier)
@@ -71,6 +70,7 @@ def score(answers_path: str, verbose: bool = False) -> dict:
     wait_hours = data.get("wait_duration_hours", 0)
     mode = data.get("mode", "unknown")
     answers = data.get("answers", [])
+    intention_trigger = data.get("intention_trigger", None)
     
     # Load all facts for confabulation check
     facts_path = os.path.join(SCRIPT_DIR, "seed-facts.json")
@@ -165,6 +165,18 @@ def score(answers_path: str, verbose: bool = False) -> dict:
     else:
         results["fidelity_gradient"] = 0.0
     
+    # Intention Fidelity (v1.3) — measures executive persistence
+    # Did the agent remember to retrieve the facts without being prompted?
+    # 1.0 = autonomous (agent initiated retrieval unprompted)
+    # 0.5 = system-nudge (reminder fired but agent needed a second nudge)
+    # 0.0 = human-prompt (only happened because a human asked)
+    # None = v1.2 format (intention_trigger not present — excluded from scoring)
+    TRIGGER_MAP = {"autonomous": 1.0, "system-nudge": 0.5, "human-prompt": 0.0, "simulated": None}
+    results["intention_fidelity"] = TRIGGER_MAP.get(intention_trigger, None)
+    if intention_trigger and intention_trigger not in TRIGGER_MAP:
+        results["intention_fidelity"] = 0.0  # unknown trigger = assume human-prompted
+    results["intention_trigger"] = intention_trigger
+    
     # Thresholds
     results["thresholds"] = {
         "retention_accuracy": {"value": results["retention_accuracy"], "target": 0.85, "met": results["retention_accuracy"] >= 0.85},
@@ -172,6 +184,7 @@ def score(answers_path: str, verbose: bool = False) -> dict:
         "confabulation_rate": {"value": results["confabulation_rate"], "target": 0.05, "met": results["confabulation_rate"] <= 0.05},
         "provenance_accuracy": {"value": results["provenance_accuracy"], "target": 0.90, "met": results["provenance_accuracy"] >= 0.90},
         "fidelity_gradient": {"value": results["fidelity_gradient"], "target": 0.15, "met": results["fidelity_gradient"] >= 0.15},
+        "intention_fidelity": {"value": results["intention_fidelity"], "target": 0.75, "met": results["intention_fidelity"] is not None and results["intention_fidelity"] >= 0.75, "na": results["intention_fidelity"] is None},
     }
     
     all_met = all(t["met"] for t in results["thresholds"].values())
@@ -181,7 +194,29 @@ def score(answers_path: str, verbose: bool = False) -> dict:
         results["confabulation_rate"] > 0.30
     )
     
-    results["tier"] = "write-once" if all_met else ("critical-failure" if critical_failure else "editable-memory")
+    # Declarative tier (existing 5 metrics)
+    declarative_tier = "write-once" if all(
+        results["thresholds"][k]["met"] for k in [
+            "retention_accuracy", "drift_rate", "confabulation_rate",
+            "provenance_accuracy", "fidelity_gradient"
+        ]
+    ) else ("critical-failure" if critical_failure else "editable-memory")
+    
+    # Executive tier (v1.3 — intention fidelity)
+    if results["intention_fidelity"] is None:
+        executive_tier = None  # v1.2 format, excluded
+    elif results["intention_fidelity"] >= 0.75:
+        executive_tier = "executive"
+    elif results["intention_fidelity"] >= 0.5:
+        executive_tier = "partial"
+    else:
+        executive_tier = "declarative-only"
+    
+    # Overall tier
+    if executive_tier:
+        results["tier"] = f"{declarative_tier} + {executive_tier}"
+    else:
+        results["tier"] = declarative_tier
     
     return results
 
@@ -204,21 +239,46 @@ def print_report(results: dict):
     print(f"  Provenance accuracy:   {results['provenance_accuracy']:.1%}  ({results['provenance_correct']}/{results['provenance_total']})")
     print(f"  Fidelity gradient:     {results['fidelity_gradient']:.2f}  (confidence spread: {results.get('confidence_distribution', {})})")
     
+    # Intention Fidelity (v1.3)
+    if results.get("intention_fidelity") is not None:
+        trigger = results.get("intention_trigger", "?")
+        labels = {1.0: "autonomous", 0.5: "system-nudge", 0.0: "human-prompt"}
+        label = labels.get(results["intention_fidelity"], trigger)
+        print(f"  Intention fidelity:    {results['intention_fidelity']:.1f}  ({label})")
+    else:
+        print(f"  Intention fidelity:    —  (v1.2 format — not measured)")
+    
     print(f"\n  🎯 Thresholds")
     print(f"  {'─'*40}")
     for name, t in results["thresholds"].items():
-        status = "✅" if t["met"] else "❌"
-        print(f"  {status} {name}: {t['value']:.1%}  (target: {t['target']:.0%})")
+        if t.get("na"):
+            status = "—"
+        else:
+            status = "✅" if t["met"] else "❌"
+        if t["value"] is None:
+            val_str = "—"
+        elif t["target"] < 1.0:
+            val_str = f"{t['value']:.1%}"
+        else:
+            val_str = f"{t['value']:.1f}"
+        target_str = f"{t['target']:.0%}" if t["target"] < 1.0 else f"{t['target']:.1f}"
+        print(f"  {status} {name}: {val_str}  (target: {target_str})")
     
-    print(f"\n  🏆 Tier: {results['tier'].upper()}")
+    print(f"\\n  🏆 Tier: {results['tier'].upper()}")
     
     # Summary
-    if results["tier"] == "write-once":
-        print(f"\n  ✅ PASS — All thresholds met at write-once tier.")
-    elif results["tier"] == "critical-failure":
-        print(f"\n  🔴 CRITICAL FAILURE — Memory system shows dangerous drift.")
+    tier = results["tier"]
+    if "executive" in tier.lower():
+        print(f"\\n  ✅ PASS — Both declarative and executive persistence at write-once tier.")
+    elif "write-once" in tier.lower():
+        if "declarative-only" in tier.lower():
+            print(f"\\n  ⚠️  WRITE-ONCE + DECLARATIVE-ONLY — Facts survived but the retrieval intention didn't. The Intention Gap.")
+        else:
+            print(f"\\n  ✅ PASS — All declarative thresholds met at write-once tier.")
+    elif "critical-failure" in tier.lower():
+        print(f"\\n  🔴 CRITICAL FAILURE — Memory system shows dangerous drift.")
     else:
-        print(f"\n  ⚠️  PARTIAL — Editable-memory tier. Drift detected but not catastrophic.")
+        print(f"\\n  ⚠️  PARTIAL — Editable-memory tier. Drift detected but not catastrophic.")
     
     # Category breakdown
     print(f"\n  📂 By Category")
@@ -261,10 +321,11 @@ def main():
             prov = f" prov:{'✅' if d.get('provenance_correct') else ('❌' if 'provenance_correct' in d else '—')}"
             print(f"  {status} {d['question_id']} ({d['category']}){fab}{prov}")
     
-    # Exit code based on tier
-    if results["tier"] == "write-once":
+    # Exit code based on declarative tier (v1.3: executive tier is informational only)
+    tier = results["tier"]
+    if "write-once" in tier.lower():
         sys.exit(0)
-    elif results["tier"] == "critical-failure":
+    elif "critical-failure" in tier.lower():
         sys.exit(2)
     else:
         sys.exit(1)
